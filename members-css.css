@@ -1,0 +1,211 @@
+/* 전체 페이지 스타일 */
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html, body {
+    height: 100%; /* 전체 페이지 높이 설정 */
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* 세로 방향으로 콘텐츠 정렬 */
+    line-height: 1.6;
+    color: #333;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 30px 30px;
+
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #000;
+}
+
+.logo i {
+    color: #ff7043; /* 로고 아이콘 색상 */
+    margin-right: 8px;
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #ff7043; /* 메뉴 항목 호버 색상 */
+}
+
+.menu i {
+    font-size: 1.2em;
+}
+
+/* 메인 콘텐츠가 늘어나면 자동으로 확장 */
+section {
+    
+    text-align: center;
+    flex: 1; /* 나머지 공간을 차지하게 설정 */
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    margin-top: auto; /* 푸터를 항상 하단에 배치 */
+}
+
+
+.hero {
+    background: #f4f4f4;
+    padding: 50px;
+    text-align: center;
+}
+
+.professor-section, .members-section, .graduates-section {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 1000px;
+}
+
+.professor-card{
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 200px;
+    margin-top: 10px;
+
+}
+.member-block {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 200px;
+    margin: 10px;
+}
+
+.professor-card img, .member-block img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.professor-card h3, .professor-card p, .member-block h3, .member-block p {
+    margin: 5px 0;
+}
+
+.graduates-section h2 {
+    margin-top: 30px;
+}
+
+.graduates-text {
+    text-align: left;
+    margin: 10px auto;
+    max-width: 800px;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* 메뉴를 세로로 배치 */
+        align-items: flex-start; /* 왼쪽 정렬 */
+        padding: 15px;
+    }
+
+    .menu {
+        flex-direction: column; /* 메뉴를 세로로 정렬 */
+        gap: 15px; /* 항목 간 간격 */
+        width: 100%; /* 전체 너비 사용 */
+    }
+
+    .professor-section, .members-section, .graduates-section {
+        text-align: center;
+        margin: 10px auto;
+        padding: 20px; /* 여백 추가 */
+    }
+
+    .professor-card, .member-block {
+        width: 90%; /* 카드 크기 확대 */
+        margin: 10px auto; /* 가운데 정렬 */
+    }
+
+    .professor-card img, .member-block img {
+        width: 120px; /* 이미지 크기 줄임 */
+        height: 120px;
+    }
+
+    .graduates-text {
+        text-align: center; /* 졸업생 정보 가운데 정렬 */
+        line-height: 1.6; /* 줄 간격 조정 */
+        padding: 10px;
+    }
+
+    footer {
+        font-size: 0.9em; /* 푸터 글자 크기 축소 */
+        padding: 15px;
+    }
+}
+
+/* 반응형 디자인 - 화면 너비가 480px 이하일 때 적용 */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .menu {
+        gap: 10px; /* 간격 줄이기 */
+    }
+
+    .menu a {
+        font-size: 0.8em; /* 텍스트 크기 축소 */
+    }
+
+    .professor-card, .member-block {
+        padding: 15px;
+    }
+
+    .professor-card img, .member-block img {
+        width: 100px; /* 이미지 크기 더 줄임 */
+        height: 100px;
+    }
+
+    .graduates-text {
+        font-size: 0.85em; /* 글자 크기 축소 */
+    }
+
+    footer {
+        font-size: 0.8em; /* 푸터 글자 크기 더 축소 */
+    }
+}

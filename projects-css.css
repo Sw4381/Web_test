@@ -1,0 +1,147 @@
+/* 전체 페이지 스타일 */
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html, body {
+    height: 100%; /* 전체 페이지 높이 설정 */
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* 세로 방향으로 콘텐츠 정렬 */
+    line-height: 1.6;
+    color: #333;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 30px 30px;
+
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #000;
+}
+
+.logo i {
+    color: #ff7043; /* 로고 아이콘 색상 */
+    margin-right: 8px;
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #ff7043; /* 메뉴 항목 호버 색상 */
+}
+
+.menu i {
+    font-size: 1.2em;
+}
+
+/* 메인 콘텐츠가 늘어나면 자동으로 확장 */
+.hero {
+    background: #f4f4f4;
+    padding: 50px;
+    text-align: center;
+}
+
+section {
+    padding: 40px 20px;
+    text-align: center;
+    flex: 1; /* 나머지 공간을 차지하게 설정 */
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    margin-top: auto; /* 푸터를 항상 하단에 배치 */
+}
+
+
+/* 반응형 디자인 - 화면 너비가 768px 이하 */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* 메뉴를 세로로 정렬 */
+        align-items: flex-start; /* 왼쪽 정렬 */
+        padding: 15px; /* 패딩 조정 */
+    }
+
+    .menu {
+        flex-direction: column; /* 메뉴를 세로로 정렬 */
+        gap: 15px; /* 항목 간 간격 */
+        width: 100%; /* 메뉴 영역 전체를 차지 */
+    }
+
+    .menu a {
+        font-size: 0.9em; /* 텍스트 크기 축소 */
+    }
+
+    .hero {
+        padding: 30px; /* 패딩 조정 */
+        font-size: 0.9em; /* 텍스트 크기 축소 */
+    }
+
+    section {
+        padding: 20px; /* 패딩 조정 */
+    }
+
+    footer {
+        font-size: 0.9em; /* 텍스트 크기 축소 */
+        padding: 15px;
+    }
+}
+
+/* 반응형 디자인 - 화면 너비가 480px 이하 */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .menu a {
+        font-size: 0.8em; /* 메뉴 텍스트 더 축소 */
+    }
+
+    .hero {
+        padding: 20px;
+        font-size: 0.8em; /* 텍스트 크기 추가 축소 */
+    }
+
+    section {
+        padding: 15px;
+        font-size: 0.85em; /* 섹션 텍스트 크기 축소 */
+    }
+
+    footer {
+        font-size: 0.8em;
+        padding: 10px;
+    }
+}

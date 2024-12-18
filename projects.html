@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>기본 웹페이지</title>
+    <link rel="stylesheet" href="projects-css.css">
+    <!-- 아이콘 폰트 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body, h1, p {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .section-container {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            transition: max-height 0.3s ease;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: left;
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .content-item {
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: #555;
+            text-align: left;
+        }
+
+        .toggle-btn {
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 1.5em;
+            color: #444;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background-color: #e0e0e0;
+            color: #000;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .toggle-btn i {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 영역 -->
+    <header class="navbar">
+        <div class="logo">
+            <h2>(로고 사진)Security Intelligence Lab</h2>
+        </div>
+        <nav class="menu">
+            <a href="index.html"><i class="fas fa-graduation-cap"></i> Home</a></div>
+            <a href="./professor.html"><i class="fas fa-user"></i> Professor</a>
+            <a href="./members.html"><i class="fas fa-users"></i> Members</a>
+            <div style="font-weight: bold;"><a href="./projects.html"><i class="fas fa-file-alt"></i> Projects&Patent</a></div>
+            <a href="./Publication.html"><i class="fas fa-copy"></i> Publications&Award</a>
+            <a href="#photo"><i class="fas fa-image"></i> Photo</a>
+        </nav>
+    </header>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-container">
+        <h1>Projects</h1>
+        <div class="content">
+            <p class="content-item">Project 1:----------------------</p>
+            <p class="content-item">Project 2:----------------------</p>
+            <div class="hidden" id="hidden-projects">
+                <p class="content-item">Project 3:----------------------</p>
+                <p class="content-item">Project 4:----------------------</p>
+            </div>
+            <button class="toggle-btn" onclick="toggleContent('hidden-projects', this)">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Patents Section -->
+    <section id="patents" class="section-container">
+        <h1>Patent</h1>
+        <div class="content">
+            <p class="content-item">Patent 1: ----------------------</p>
+            <p class="content-item">Patent 2: ----------------------</p>
+            <div class="hidden" id="hidden-patents">
+                <p class="content-item">Patent 3: ----------------------</p>
+                <p class="content-item">Patent 4: ----------------------</p>
+            </div>
+            <button class="toggle-btn" onclick="toggleContent('hidden-patents', this)">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+    </section>
+
+    <script>
+        function toggleContent(id, button) {
+            const contentDiv = document.getElementById(id);
+            const isHidden = contentDiv.classList.contains('hidden');
+            const icon = button.querySelector('i');
+
+            if (isHidden) {
+                contentDiv.classList.remove('hidden');
+                icon.className = 'fas fa-chevron-up';
+            } else {
+                contentDiv.classList.add('hidden');
+                icon.className = 'fas fa-chevron-down';
+            }
+        }
+    </script>
+    <!-- Font Awesome CDN for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <!-- 푸터 -->
+    <footer>
+        <p>&copy; contac : kinjecs0@gmail.com</p>
+    </footer>
+</body>
+</html>
