@@ -18,6 +18,13 @@ body {
     color: #333;
 }
 
+
+.logo-picture{
+    width: 230px;
+}
+
+
+
 .navbar {
     display: flex;
     align-items: center;
@@ -79,6 +86,10 @@ body {
     color: white;
     animation: glow 1.5s infinite alternate;
 }
+.log logo-picture{
+    width : 50px;
+    margin-right: 20px;
+}
 
 @keyframes glow {
     from {
@@ -94,6 +105,7 @@ body {
     background: #f4f4f4;
     padding: 150px 50px 50px; /* 메뉴바 높이를 고려하여 패딩 조정 */
     text-align: center;
+
 }
 
 section {

@@ -18,6 +18,10 @@ body {
     color: #333;
 }
 
+.logo-picture{
+    width: 230px;
+}
+
 .navbar {
     display: flex;
     align-items: center;
