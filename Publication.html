@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>기본 웹페이지</title>
+    <link rel="stylesheet" href="Publication-css.css">
+    <!-- 아이콘 폰트 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        .publications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 20px;
+        }
+        .publication {
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .sci {
+            border-left: 5px solid #007bff;
+        }
+        .kci {
+            border-left: 5px solid #28a745;
+        }
+        .other {
+            border-left: 5px solid #6c757d;
+        }
+        h3 {
+            margin-bottom: 10px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .publication{
+            margin-bottom: 20px;
+        }
+        .hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+
+/* 애니메이션이 완료되면 보이도록 상태 변경 */
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .Select-Paper {
+            text-align: center; /* Center align the buttons */
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #007bff; /* Primary color */
+            color: white; /* Text color */
+            border: none;
+            padding: 10px 20px; /* Padding for larger click area and better aesthetics */
+            margin: 0 10px; /* Space between buttons */
+            border-radius: 5px; /* Rounded corners for modern look */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s, transform 0.2s; /* Smooth transition for hover effects */
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+            transform: translateY(-2px); /* Slight raise effect on hover */
+        }
+        h1 {
+            text-align: center; /* Center the title */
+            margin-top: 120px;
+            color: #333; /* Dark grey color for text */
+        }
+        hr {
+            border-color: red; /* Red color for the horizontal rule */
+            width: 100%; /* Shorter width for aesthetic purpose */
+            margin: 10px auto; /* Center align and small space from heading */
+        }
+    </style>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const hiddenElements = document.querySelectorAll(".hidden");
+
+        const handleScroll = () => {
+            hiddenElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (elementTop < windowHeight - 50) {
+                    element.classList.add("visible");
+                } else {
+                    element.classList.remove("visible");
+                }
+            });
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        // 초기 호출로 애니메이션 활성화
+        handleScroll();
+    });
+
+    function scrollToElement(elementId) {
+        const element = document.getElementById(elementId);
+        const headerOffset = 160; // Height of your header or any fixed elements, adjust accordingly
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    }
+    </script>
+</head>
+<body>
+    <!-- 헤더 영역 -->
+    <header class="navbar">
+        <div class="logo">
+            <img class="logo-picture" src="./image.png">
+        </div>
+        <nav class="menu">
+            <a href="index.html"><i class="fas fa-graduation-cap"></i> Home</a>
+            <a href="./members.html"><i class="fas fa-users"></i> Members</a>
+            <a href="./projects.html"><i class="fas fa-file-alt"></i> Project</a>
+            <a href="./Publication.html"  class="active" ><i class="fas fa-copy"></i> Publications</a>
+            <a href="./photo.html"><i class="fas fa-image"></i> Other Activity</a>
+        </nav>
+    </header>
+
+
+    <!-- 논문 리스트 -->
+     <h1 style="margin-top:120px;""> Publications   </h1>
+     <hr style="color: red;">
+    <div class="Select-Paper" style="margin-bottom: 20px;">
+        <button onclick="scrollToElement('sci')">SCI</button>
+        <button onclick="scrollToElement('kci')">KCI</button>
+        <button onclick="scrollToElement('other')">Other Publication</button>
+    </div>
+
+        <div class="publication sci hidden">
+            <h3><i class="fas fa-star"></i> SCI</h3>
+            <ul>
+                <li id="sci">[P171] Lim, Suengbum, Jingang Kim, and Taejin Lee. "Shapelet-based Fault Sensor Detection and Human-centered Explanations in Industrial Control System." IEEE Access (2023.12) - SCIE</li>
+                <li >[P170] Lee, Hyun-Woo, Tae-Hyun Han, and Tae-Jin Lee. "Reference based AI Decision Support for Cybersecurity." IEEE Access (2023.12) - SCIE</li>
+                <li>[P159] Y. Lee, Y. Lee, E. Lee and T. Lee. "Explainable artificial intelligence-based model drift detection applicable to unsupervised environments." Computers, Materials & Continua (2023.8) - SCIE</li>
+                <li>[P157] E. Lee, Y. Lee and T. Lee. "Adversarial attack-based robustness evaluation for trustworthy ai," Computer Systems Science and Engineering, vol. 47, no.2, pp. 1919–1935, (2023.7) - SCIE</li>
+                <li>[P145] J. Kim, S. Lim and T. Lee. "Efficient explanation and evaluation methodology based on hybrid feature dropout," Computer Systems Science and Engineering, vol. 47, no.1, pp. 471–490, (2023.6) - SCIE</li>
+                <li>[P144] Yoo, Sunmo, and Taejin Lee. "A Study of the Ordinal Scale Classification Algorithm for Cyber Threat Intelligence Based on Deception Technology." Electronics 12.11 (2023.5): 2474 - SCIE</li>
+                <li>[P136] Lee, E.; Lee, Y.; Lee, T. "Automatic False Alarm Detection Based on XAI and Reliability Analysis". Appl. Sci. 2022, 12, 6761 - SCIE</li>
+                <li>[P135] Lee Y, Lee E, Lee T. "Human-Centered Efficient Explanation on Intrusion Detection Prediction". Electronics. 2022; 11(13):2082 - SCIE</li>
+                <li>[P134] Jin-gang Kim, Sueng-bum Lim, and Tae-jin Lee. "Efficient Illegal Contents Detection and Attacker Profiling in Real Environments". KSII Transactions on Internet and Information Systems, 16, 6, (2022), 2115-2130 - SCIE</li>
+                <li>[P120] Chanwoong Hwang and Taejin Lee. "E-SFD: Explainable Sensor Fault Detection in the ICS Anomaly Detection System" IEEE Access (2021.10) - SCIE</li>
+                <li>[P112] Kim, Hongbi, et al. "Cost-effective valuable data detection based on the reliability of artificial intelligence." IEEE Access (2021.7) - SCIE</li>
+                <li>[P105] Hwang, Chanwoong, Doyeon Kim, and Taejin Lee. "Semi-supervised based Unknown Attack Detection in EDR Environment." KSII Transactions on Internet & Information Systems 14.12 (2020) - SCIE</li>
+                <li>[P95] Hwang, C.; Kim, H.; Lee, H.; Lee, T. "Effective DGA-Domain Detection and Classification with TextCNN and Additional Features". Electronics 2020, 9, 1070 - SCIE</li>
+                <li>[P94] Kim, S.; Hwang, C.; Lee, T. "Anomaly Based Unknown Intrusion Detection in Endpoint Environments". Electronics 2020, 9, 1022 - SCIE</li>
+                <li>[P93] Hwang, C.; Hwang, J.; Kwak, J.; Lee, T. "Platform-Independent Malware Analysis Applicable to Windows and Linux Environments". Electronics 2020, 9, 793 - SCIE</li>
+                <li>[P85] Park, Leo Hyun, et al. "Birds of a Feature: Intrafamily Clustering for Version Identification of Packed Malware." IEEE Systems Journal (2020.1) - SCIE</li>
+                <li>[P84] Hwang, J. H., Kwak, J., & Lee, T. J. "Fast k-NN based Malware Analysis in a Massive Malware Environment". KSII Transactions on Internet & Information Systems.(2019.12) - SCIE</li>
+                <li>[P68] Choi, S. K., Lee, T., & Kwak, J. (2019). A Study on Analysis of Malicious Code Behavior Information for Predicting Security Threats in New Environments. KSII Transactions on Internet & Information Systems, 13(3) - SCIE</li>
+                <li>[P67] Son, D., Huh, S., Lee, T., & Kwak, J. (2019). Internet of things system technologies based on quality of experience. Peer-to-Peer Networking and Applications, 1-14 - SCIE</li>
+                <li>[P62] Taejin Lee and Jin Kwak, "EMICS: E-mail based Malware Infected IP Collection System," KSII Transactions on Internet and Information Systems, vol. 12, no. 6, pp. 2881-2894, 2018 - SCIE</li>
+                <li>[P54] Taejin Lee, Jin Kwak, "Effective and Reliable Malware Group Classification for a Massive Malware Environment", International Journal of Distributed Sensor Networks, 2016.4.18 - SCIE</li>
+                <li>[P44] Taejin Lee, Bomin Choi, Youngsang Shin, Jin Kwak, "Automatic malware mutant detection and group classification based on the n-gram and clustering coefficient", Journal of Supercomputing, 2015.12.18 - SCIE</li>
+                <li>[P43] Taejin Lee, Hesun Cho, Haeryong Park, Jin Kwak, "Detection of Malware Propagation in Sensor Node and Botnet Group Clustering Based on E-mail Spam Analysis", International Journal of Distributed Sensor Networks, 2015.2.17 - SCIE</li>
+            </ul>
+        </div>
+
+        <!-- KCI 논문 -->
+        <div class="publication kci hidden" id="kci">
+            <h3><i class="fas fa-book"></i> KCI</h3>
+            <ul>
+                <li>[P177] 이예은, 이태진, 그래프 기반 이기종 위협정보 분석기술 연구, 정보보호학회논문지, 2024.6. 34(3) - KCI</li>
+                <li>[P164] 이예은. 이태진, MLOps를 위한 효율적인 AI 모델 드리프트 탐지방안 연구, 인터넷정보학회논문지(2023.10) - KCI</li>
+                <li>[P163] 정혜란. 한태현. 이주영. 이태진, "침해사고 분석을 위한 LSTM-CRF 기반 IOC 추출 연구", 디지털문화아카이브지 2023.10 (vol.6. no.2) - KCI</li>
+                <li>[P156] 정시온, 한태현, 임승범, 이태진, AI 모델의 Robustness 향상을 위한 효율적인 Adversarial Attack 생성 방안 연구, 인터넷정보학회논문지(2023.7) - KCI</li>
+                <li>[P155] 서주현. 유선모. 박종화. 이태진. GNN을 이용한 웹사이트 Hierarchy 분석 기반 해외 저작권 침해 사이트 분류 모델 연구. 융합보안학회논문지(2023.6) - KCI</li>
+                <li>[P154] 이현우, 한태현, 박영지, 이태진, "Reference 기반 AI 모델의 효과적인 해석에 관한 연구", 한국정보보학회논문지, vol.33, No.3 (2023.6) - KCI</li>
+                <li>[P142] 김익선, 임승범, 이태진. "스마트 팩토리에서의 선제적 유지보수 시점탐색 및 원인분석 기술 연구", 디지털문화아카이브지 Vol.6 No.1 (2023.4) - KCI</li>
+                <li>[P139] 이은규, 정시온, 이현우, 이태진, "악성코드 변종 분석을 위한 AI 모델의 Robust 수준 측정 및 개선 연구", 정보보호학회논문지, 2022.10. 32(5) - KCI</li>
+                <li>[P123] 김진강, 황찬웅, and 이태진. "악성코드 분석에서의 AI 결과 해석에 대한 평가 방안 연구." 정보보호학회논문지 31.6 (2021.12): 1193-1204 - KCI</li>
+                <li>[P119] 황찬웅, 배성호, 이태진. "MITRE ATT&CK 및 Anomaly Detection 기반 이상 공격징후 탐지기술 연구". 융합보안학회논문지, 2021.9. 21(3) - KCI</li>
+                <li>[P116] 김도연, 정아연, 이태진, "머신러닝 기반 악성코드 그룹분류 결과 해석에 관한 연구", 정보보호학회논문지, 2021.8. 31(4) - KCI</li>
+                <li>[P109] 김진강, 황찬웅, and 이태진. "불법저작물 유포자 행위분석 프로파일링 기술 연구." 인터넷정보학회논문지 22.3 (2021.6): 75-83 - KCI</li>
+                <li>[P104] 황찬웅, 김진강, 이용수, 김형래, & 이태진. "불법복제물 고속검색 및 Heavy Uploader 프로파일링 분석기술 연구". 정보보호학회논문지, 30(6), 1067-1078 - KCI</li>
+                <li>[P97] 김세진, 김도연, 이후기, & 이태진. "영상처리기법을 이용한 CNN 기반 리눅스 악성코드 분류 연구", 한국산학기술학회 논문지, 21(9), 634-642 (2020.9) - KCI</li>
+                <li>[P96] 김홍비, and 이태진. "Stacked Autoencoder 기반 악성코드 Feature 정제 기술 연구." 정보보호학회논문지 30.4 (2020.8): 593-603 - KCI</li>
+                <li>[P86] 하지희, 이태진. "문자열 정보를 활용한 텍스트 마이닝 기반 악성코드 분석 기술 연구". 한국인터넷정보학회 논문지(2020.2) - KCI</li>
+                <li>[P80] 황준호, and 이태진. "정적 분석과 앙상블 기반의 리눅스 악성코드 분류 연구." 정보보호학회논문지 29.6 (2019.12): 1327-1337 - KCI</li>
+                <li>[P79] 김홍비, 신현석, 황준호, & 이태진. "Dhash 기반 고속 악성코드 변종 탐지기법". 정보과학회논문지, 46(11), 1207-1214 (2019.10) - KCI</li>
+                <li>[P78] 황찬웅, 하지희, and 이태진. "저작권 보호를 위한 변형된 파일 제목 정규화 기법." 융합보안논문지 19.4: 133-142 (2019.11) - KCI</li>
+                <li>[P77] 김수정, 하지희, 오수현, 이태진, "정적 분석 기반 기계학습 기법을 활용한 악성코드 식별 시스템 연구", 한국정보보호학회 논문지, 2019.8 - KCI</li>
+                <li>[P66] 김수정, 하지희, and 이태진. "악성코드 패킹유형 자동분류 기술 연구." 정보보호학회논문지 28.5 (2018): 1119-1127 - KCI</li>
+                <li>[P65] 황준호, 이태진. "2-Dimension 정적 Feature Set이 적용된 Convolutional Neural Network 기반의 악성코드 패킹 분석." 한국통신학회논문지, vol.43, no.12, pp.2089-2099 - KCI</li>
+                <li>[P64] 황준호, et al. "Endpoint 에 적용 가능한 정적 feature 기반 고속의 사이버 침투공격 분석기술 연구." 인터넷정보학회논문지 19.5 (2018): 21-31 - KCI</li>
+                <li>[P61] 하지희, 김수정, and 이태진. "DLL/API 통계적 분석을 통한 Feature 추출 및 Machine Learning 기반 악성코드 탐지 기법." 한국통신학회논문지 43.4 (2018): 730-739 - KCI</li>
+                <li>[P56] 황준호, 황선빈, 김호경, 하지희, & 이태진. "Section, DLL feature 기반 악성코드 분석 기술 연구." 정보보호학회논문지 27(5), 1077-1086 (2017) - KCI</li>
+                <li>[P55] 황준호, 이태진. "Naive Bayes 기반 안드로이드 악성코드 분석 기술 연구." 정보보호학회논문지 27(5), 1087-1097 (2017) - KCI</li>
+                <li>[P37] 손경호, 이태진, and 원동호. "트래픽 분석을 통한 악성코드 감염 PC 및 APT 공격탐지 방안." 정보보호학회논문지 24.3 (2014): 491-498 - KCI</li>
+                <li>[P21] 이태진, 임채수, 임채태, & 정현철. "웹서비스 대상 경량화 된 응용계층 DDoS 공격 대응 메커니즘." 정보보호학회논문지 20(5), 99-110 (2010) - KCI</li>
+                <li>[P10] 이태진, and 김형종. "프레즌스 서비스 제공을 위한 XCAP 권한관리 기법 연구." 융합보안논문지 8.1 (2008): 79-90 - KCI</li>
+                <li>[P4] 이태진, 원유재. "필수 서비스의 침입감내를 위한 그룹관리 프로토콜의 신뢰성 분석." 한국시뮬레이션학회 논문지, 2007 - KCI</li>
+                <li>[P3] 김형종, and 이태진. "필수 서비스의 침입감내를 위한 그룹관리 프로토콜의 신뢰성 분석." 한국시뮬레이션학회 논문지 16.1 (2007): 59-68 - KCI</li>
+            </ul>
+        </div>
+
+        <!-- 나머지 논문 -->
+        <div class="publication other hidden" id="other">
+            <h3><i class="fas fa-file-alt"></i> Other Publications</h3>
+            <ul>
+                <li>[P179] 황상연. 한태현. 이선우. 이태진, "인공지능에서의 기밀성 공격대응 기술 동향 및 수준평가 방안 연구", 한국융합보안학회 하계학술대회 2024.6 - 우수논문상</li>
+                <li>[P178] 정혜란. 정연수. 이태진, "보안분야에서의 XAI 현황진단 및 개선방안에 대한 연구", 한국융합보안학회 하계학술대회 2024.6 - 장려상</li>
+                <li>[P176] 이주영, 이선우, 황상연, 이태진, "Network topology를 반영한 IP레벨에서의 공격행위 탐지 기술 연구", 한국정보보호학회 하계학술대회 (2024.6) - 우수논문상</li>
+                <li>[P175] 윤주한, 정진욱, 이선우, 이태진, "Process hierarchy를 반영한 비정상 공격징후 탐지 기술 연구", 한국정보보호학회 하계학술대회 (2024.6)</li>
+                <li>[P174] Seon Woo Lee, Ju Young Lee, Tae-jin Lee, "Graph Neural Networks for Network Intrusion Detection: An IP Behavioral Analysis Perspective", SVCC 2024 (2024.6)</li>
+                <li>[P173] Taehyun Han, Sangyeon Hwang, Tae-jin Lee, "Attack Group Analysis and Identification based on Heterogeneous Graph", SVCC 2024 (2024.6)</li>
+                <li>[P172] 이태진, "정보보호 기술 용어", TTA, TTAK.KO-12.0002/R4 (2023.12)</li>
+                <li>[P169] Sang-Yeon Hwang, Sueng-Bum Lim, Ye-Eun Lee and Tae-jin Lee, "Research on various metapath-specific embedding-based interpretations of heterogeneous graphs", MobiSec 2023.12</li>
+                <li>[P168] Hyunwoo Lee and Taejin Lee, "Research on Graph AI Based Anomaly Detection for Endpoint Detection and Response", MobiSec 2023.12</li>
+                <li>[P167] 한태현. 정혜란. 이주영. 이태진, "BERT 기반 CVE 임베딩 및 Graph 기반 분석 방안", 한국정보보호학회 학술대회 2023.12</li>
+                <li>[P166] 정시온. 이선우. 이태진, "GNN 기반 Network Anomaly Detection 기술 연구", 한국정보보호학회 학술대회 2023.12</li>
+                <li>[P165] 이주영. 한태현. 정혜란. 이태진, "그래프 기반의 사이버 위협 분석을 위한 IOC 추출 검증", 한국정보처리학회 ACK 2023.9 - 우수논문상</li>
+                <li>[P162] 황상연. 임승범. 이예은. 이태진, "AI를 활용한 공격그룹 판단결과에 대한 XAI 기반 신뢰수준 연구", 한국정보보호학회 학술대회 2023.9</li>
+                <li>[P161] 정혜란. 한태현. 이태진, "Transformer의 security 적용 사례와 시사점", 한국정보보호학회 학술대회 2023.9</li>
+                <li>[P160] 이선우. 이현우. 정시온. 이태진, "보안 분야에서의 GNN 연구 동향 분석", 한국정보보호학회 학술대회 2023.9 - 호서대 총장상</li>
+                <li>[P158] 이태진, "보안 분야에서의 XAI 평가기술 동향", IITP 주간기술동향 2102호. (2023.8)</li>
+                <li>[P153] 서주현, 신민일, 박진주, 이태진, "웹사이트 Hierarchy 분석 기반 해외 저작권 침해 사이트 분류 모델 연구", 한국융합보안학회 하계학술대회 20203.6. - 우수논문상</li>
+                <li>[P152] 정시온, 이현우, 황상연, 이태진, "Security 분야에서의 Transformer의 security 적용 사례와 시사점XAI 연구 동향 및 시사점", 한국융합보안학회 하계학술대회 20203.6. - 우수논문상</li>
+                <li>[P151] 이선우, 이현우, 이태진, "GNN 기반 EDR 환경에서의 효과적인 이상 탐지에 관한 연구", 한국융합보안학회 하계학술대회 20203.6. - 우수논문상</li>
+                <li>[P150] 노경록, 김민재, 김태원, 배정호, 이태진, "network 공격에 공통적용 가능한 lightweight한 feature 산출방안 연구", 한국정보보호학회 하계학술대회 2023.6</li>
+                <li>[P149] 한태현, 박영지, 이규한, 이태진, "Reference 기반 비용 대비 효과적인 Adversarial Attack 생성 기법 연구", 한국정보보호학회 하계학술대회 2023.6 - 과기부장관상</li>
+                <li>[P148] 박정욱, 이태진, "Adversarial attack에 Robust한 Voice Identification 기술 연구", 한국정보보호학회 하계학술대회 2023.6</li>
+                <li>[P147] 최성용, 한태현, 이태진, "Playbook 기반 IDS에서의 False Alarm Reduction 기술 연구", 한국정보보호학회 하계학술대회 2023.6</li>
+                <li>[P146] 김원형, 신민일, 박종화, 이태진, "Improving SDP Spec V2 Onboarding vulnerabilities for Black Cloud", 한국정보보호학회 하계학술대회 2023.6</li>
+                <li>[P143] 박영지, 이태진, "Rule 기반 AI 모델의 지속운용을 위한 프레임워크", 한국정보처리학회 학술대회. 2023.5 - 우수논문상</li>
+                <li>[P141] 이태진, 곽진, "저작권 침해 프로파일링 기술 소개", 한국저작권보호원 C Story Magazine 2023.2 - link</li>
+                <li>[P140] 한태현, 이은규, 이태진, "주요 feature를 사용한 이미지 기반 악성코드 탐지 연구", 한국시뮬레이션학회 학술대회. 2022.11 - 우수논문상</li>
+                <li>[P138] 이예은, 이용수, 이태진, "Lexical 특징기반 악성 URL 탐지기법 연구", 한국정보보호학회 학술대회. 2022.10</li>
+                <li>[P137] 이현우, 이태진, "프로세스 실행 체인 분석을 통한 lightweight한 문서형 악성코드 탐지방안 연구", 한국정보보호학회 학술대회. 2022.10</li>
+                <li>[P133] 이현우, 이예은, 이태진, "AI 예측오류 탐지를 통한 신뢰성 향상방안 연구", 한국정보보호학회 학술대회. 2022.6</li>
+                <li>[P132] 이현나, 임승범, 이태진, "전력 시스템에서의 이상 결함징후 탐지방안 연구", 한국정보보호학회 학술대회. 2022.6</li>
+                <li>[P131] 정시온, 김진강, 이태진, "자동화된 Data Cleaning 기반 AI 성능 향상 방안 연구", 한국정보보호학회 학술대회. 2022.6</li>
+                <li>[P130] 오주영, 김동우, 이태진, "A Study on SQL Injection based on web attack detection techniques", 한국정보보호학회 학술대회. 2022.6</li>
+                <li>[P129] 장진호, 임채현, 이태진, "정확성이 향상된 XAI 기반 Feature 해석 기법 연구". 한국통신학회 학술대회. 2022.6</li>
+                <li>[P128] 임승범, 김진강, 이태진, "IDS 환경에서의 shapelet 기반 침해공격 탐지기술 연구". 한국시뮬레이션학회 학술대회. 2022.6</li>
+                <li>[P127] 김진강, 이태진, "IDS 환경에서의 shapelet 기반 침해공격 탐지기술 연구". 한국시뮬레이션학회 학술대회. 2022.6</li>
+                <li>[P125] 이예은, 이용수, 이은규, 이태진, "인공지능 기반 악성코드 분석에서의 모델편향 완화방안 연구". 한국통신학회 학술대회. 2022.2</li>
+                <li>[P124] 임승범, 김홍비, 이태진, "설명 가능한 인공지능 기반 스마트팩토리 이상 징후 탐지 및 원인 분석기술 연구". 한국통신학회 학술대회. 2022.2</li>
+                <li>[P118] 이현나, 배성호, 황찬웅, 이태진, "산업제어시스템에서 산업 공정별 확률적 이상 탐지". 정보보호학회 충남학술대회. 2021.8 - ETRI 원장상</li>
+                <li>[P117] 이예은, 이용수, 이태진, "Netflow를 이용한 이상 공격징후 탐지방안 연구". 정보보호학회 충남학술대회. 2021.8</li>
+                <li>[P115] Sungho Bae, Chanwoong Hwang, Taejin Lee, "Research on improvement of anomaly detection performance in industrial control systems". WISA 2021.8</li>
+                <li>[P114] Jingang Kim, Chanwoong Hwang, Taejin Lee, "A Study on the Analysis of Illegal Content Propagation Path Based on Heavy Uploader". WISA 2021.8</li>
+                <li>[P113] Ahyeon Jeong, Eungyu Lee, Hongbi Kim, Doyeon Kim, Taejin Lee, "A study on the Interpretability of Malware Detection based on Artificial Intelligence". WISA 2021.8</li>
+                <li>[P111] 이은규, 김홍비, 이태진, "AI 예측에 대한 신뢰도 분석 연구". 한국정보보호학회 하계학술대회. 2021.7</li>
+                <li>[P110] 정아연, 김도연, 김진강, 이태진, "LIME 기반 악성코드 그룹분류 해석 연구". 한국정보보호학회 하계학술대회. 2021.7</li>
+                <li>[P107] Kim, Doyeon, Chanwoong Hwang, and Taejin Lee, "Stacked-Autoencoder Based Anomaly Detection with Industrial Control System". International Conference on Software Engineering, Artificial Intelligence, Networking and Parallel/Distributed Computing. Springer, Cham, 2021.2</li>
+                <li>[P106] Hongbi Kim, Taejin Lee, "Research on Autoencoder Technology for Malware Feature Purification". SNPD 2021.2</li>
+                <li>[P103] Doyeon Kim, Taejin Lee, "Anomaly detection in time-series data environments". ACM ICEA 2020.12</li>
+                <li>[P102] Sejin Kim, Taejin Lee, "XGBoost based Packer Identification study using Entry point". ACM ICEA 2020.12</li>
+                <li>[P101] 최아린, 이태진, 김형종, "LSTM 기반 안드로이드 APK 호출 메소드 분석을 통한 악성코드 탐지기법 연구". 한국IT서비스학회 추계학술대회. 2020.11 - 최우수논문상</li>
+                <li>[P100] 김진강, 황찬웅, 이태진, "불법 저작물에 대한 Heavy uploader 프로파일링 기술연구". 한국인터넷정보학회 추계학술대회. 2020.10 - 우수논문상</li>
+                <li>[P99] 이용수, 김형래, 황찬웅, 이태진, "Bloom filter 기반 불법 복제물 검색 기술 연구". 한국인터넷정보학회 추계학술대회. 2020.10</li>
+                <li>[P92] 김도연, 이용수, 윤재헌, 이태진, "K-means Clustering을 이용한 kNN 속도개선에 관한 연구". KIISC 2020.7</li>
+                <li>[P91] 김세진, 김효식, 이태진, "Entry Point를 활용한 머신러닝 기반 악성코드 분석연구". KIISC 2020.7</li>
+                <li>[P90] Chanwoong Hwang, Sunjin Kim, Doyeon Kim, Taejin Lee, "A Study on Detecting Suspicious and Malicious Activity based on AutoEncoder". APIC-IST 2020.7</li>
+                <li>[P89] Hongbi Kim, Hyosik Kim, Sejin Kim, Taejin Lee, "A Study on the DGA Domain Detection with textCNN". APIC-IST 2020.7</li>
+                <li>[P88] 황찬웅, 김선진, 이태진, "LOF 기반 공격 의심 행위 탐지기술 연구". KIICE 2020.7</li>
+                <li>[P87] 김효식, 이태진, "LightGBM을 이용한 IDS 웹 이벤트 로그 분류 기법". KIICE 2020.7</li>
+                <li>[P83] Younhjoo Lea, Junho Hwang, Taejin Lee, "High-Speed Search Technology based on Ssdeep". ICONI 2019</li>
+                <li>[P82] Sujeong Kim, Hongbi Kim, Taejin Lee, "Abnormal Behavior Detection in Endpoint Environment". ICONI 2019</li>
+                <li>[P81] JiHee Ha, Chanung Hwang, Taejin Lee, "A Study on the Search Technique of Similar Posts Based on Simhash". ICONI 2019</li>
+                <li>[P76] 홍승욱, 이태진, 오수현, "Smart Building에서 운영 가능한 DLL Injection 기반 경량 암호기술에 관한 연구". 한국정보보학회 학술대회. 2019.6</li>
+                <li>[P75] 유선모, 이태진, "캔들스틱 기반 네트워크 트래픽 및 위협 시각화 기법에 대한 연구". 한국정보보학회 학술대회. 2019.6</li>
+                <li>[P74] 이영주, 이태진, "DNN 기반 Packer 유형 분류기술 연구". 한국정보보학회 학술대회. 2019.6</li>
+                <li>[P73] 황찬웅, 이태진, "kNN 기반 악성코드 분석 최적화 방안 연구". 한국정보보학회 학술대회. 2019.6</li>
+                <li>[P72] 김세진, 강주현, 박해민, 이태진, 텍스트 마이닝 기반 스팸메일 분석기술 연구, 한국정보보학회 학술대회, 2019.6</li>
+                <li>[P71] 김지수, 양은성, 이태진, CNN 기반 안면인식 인증기술 연구, 한국정보보학회 학술대회, 2019.6</li>
+                <li>[P70] 하지희, 이태진, TF-IDF 기반 PE파일 Embedding 기법을 통한 악성코드 유형분류 기술 연구, 한국정보보학회 학술대회, 2019.6</li>
+                <li>[P69] 김수정, 신현석, 이태진, dhash feature를 활용한 머신러닝 기반 리눅스 악성코드 분석기술 연구, 한국정보보학회 학술대회, 2019.6</li>
+                <li>[P63] 신현석, 황준호, 이태진, "Dhash 기반 변종 악성코드 판별 연구." 한국인터넷정보학회 학술발표대회논문집 (추계), 2018</li>
+                <li>[P60] 김호경, 황선빈, 이태진, "악성코드의 난독화 특징에 기반한 악성여부 판별기술 연구." 한국소프트웨어 종합학술대회 논문집, 2017.12</li>
+                <li>[P59] 이은지, 이태진, 곽진, "심볼 기반 악성코드 분류 모델." 한국정보보호학회 동계학술대회 논문집, Vol.27, No.2, 2017</li>
+                <li>[P58] EunJi Lee, DeukHun Kim, Taejin Lee, Jin Kwak, "Symbol-based Advanced Static Malware Analysis Model." International Conference on Internet (ICONI), 2017</li>
+                <li>[P57] 박병주, 이태진, 곽진, "블록체인 기반 IoT 디바이스 인증 스킴." 정보보호학회논문지, Vol.27, No.2, 2017</li>
+                <li>[P53] Kim, Mijoo, et al., "A study on behavior-based mobile malware analysis system against evasion techniques." 2016 International Conference on Information Networking (ICOIN), 2016</li>
+                <li>[P52] 최보민, 강홍구, 이태진, "동적분석 기반 악성코드 자동 분류 기법에 관한 연구." 한국통신학회 학술대회논문집, 2016</li>
+                <li>[P51] Cho, Hyeisun, et al., "The data indexing for cyber threat resources." Ubiquitous and Future Networks (ICUFN), 2016</li>
+                <li>[P50] 최은영, 고웅, 이태진, "모바일 소액결제 환경에서의 금융거래 패턴에 대한 연구." 한국통신학회 학술대회논문집, 2016</li>
+                <li>[P49] 김낙현, 김병익, 이태진, "유사 악성코드 분류 기법에서 어셈블리어 코드 변화에 따른 분류 성능 분석." 한국통신학회 학술대회논문집, 2016</li>
+                <li>[P48] 이슬기, et al., "침해사고 데이터 웨어하우스 구축을 위한 단일 침해자원 관리방안 연구." 한국통신학회 학술대회논문집, 2016</li>
+                <li>[P47] 유대훈, 강홍구, 이태진, "이메일 전송경로 분석을 통한 위조 이메일 발송 IP 추적방법 연구." 한국통신학회 학술대회논문집, 2016</li>
+                <li>[P46] 황동욱, 강홍구, 이태진, "API 호출 기반 악성행위 자동탐지에 관한 연구." 한국통신학회 학술대회논문집, 2016</li>
+                <li>[P41] Cho, Hyeisun, et al., "The study of prediction of same attack group by comparing similarity of domain." ICTC, 2015</li>
+                <li>[P40] Kim, Byungik, Hyeisun Cho, Taijin Lee, "Intelligent Network Surveillance Technology for APT Attack Detections." 2015</li>
+                <li>[P39] Jeong, Seong Hoon, et al., "A Survey of Fraud Detection Research based on Transaction Analysis and Data Mining Technique." Journal of the Korea Institute of Information Security and Cryptology, 2015</li>
+                <li>[P38] Son, Kyungho, Taijin Lee, Dongho Won, "Design for Zombie PCs and APT Attack Detection based on traffic analysis." Journal of the Korea Institute of Information Security and Cryptology, 2014</li>
+                <li>[P37] 손경호, 이태진, 원동호, "트래픽 분석을 통한 악성코드 감염 PC 및 APT 공격탐지 방안." 정보보호학회논문지, 2014</li>
+                <li>[P36] 장철순, et al., "보안 인텔리전스 정보 생성을 위한 통합 보안 상황분석 모델에 관한 연구." 한국통신학회 발표 논문집, 2014</li>
+                <li>[P35] 이창용, et al., "악성 이메일 탐지를 위한 이메일 최초 발신자 IP 추적 기법." 한국통신학회 발표 논문집, 2014</li>
+                <li>[P34] 이슬기, 김병익, 이태진, 박해룡, "DNS 트래픽 정보를 활용한 침해사고분석에 관한 연구." 한국통신학회 발표 논문집, 2014</li>
+                <li>[P33] Kim, J., Lee, T., Kim, H. G., Park, H., "Detection of advanced persistent threat by analyzing the big data log." Advanced Science and Technology Letters, 2013</li>
+                <li>[P32] 원유재, 이태진, 문기영, "정보보호 연구개발 이슈 및 추진방향." 한국통신학회지, 2013</li>
+                <li>[P31] 강홍구, et al., "고위험 악성 URL/악성코드 관리 시스템." 한국통신학회 발표 논문집, 2013</li>
+                <li>[P30] 이창용, 이태진, 강홍구, 김병익, 손경호, "이메일의 악성여부 판단 시스템." 한국통신학회 발표 논문집, 2013</li>
+                <li>[P29] 김병익, et al., "네트워크 내부 유입 악성코드 탐지를 위한 실시간 네트워크 패킷 점검 방식에 관한 연구." 한국통신학회 발표 논문집, 2013</li>
+                <li>[P28] 강홍구, 김병익, 이태진, 박해룡, 김기홍, "악성코드 API 자동 분석 시스템." 한국통신학회 종합 학술 발표회 논문집 (추계), 2013</li>
+                <li>[P27] 이태진, 정현철, 이재일, "이메일 스팸트랩 기반 좀비 PC/봇넷그룹 탐지 현황." 정보보호학회지 22.8, 2012</li>
+                <li>[P26] 배철민, 김병익, 이태진, 정현철, "Hybrid 악성코드 수집 기술 기반 Unknown 악성코드 선별 방안 연구." 한국정보과학회 가을 학술발표논문집 제 39 권 제 2 호 (C), 2012</li>
+                <li>[P25] 이창용, 강홍구, 이태진, 정현철, 원유재, "문서형 악성코드 행위 분석 및 악성여부 탐지 시스템." 한국경영정보학회 학술대회, 2012</li>
+                <li>[P24] 이태진, 오주형, 정현철, "Taint Analysis 기반 악성코드 탐지 방안." 한국정보과학회 한국컴퓨터종합학술대회 논문집 제 38 권 제 1 호 (D), 2011</li>
+                <li>[P23] Lee, Tai-jin, et al., "Light-weight Defense Mechanisms for application layer DDoS Attacks in the Web Services." Journal of the Korea Institute of Information Security and Cryptology 20.5, 2010</li>
+                <li>[P22] 이태진, 임채수, 임채태, 정현철, "Admission Control 기반 웹 서비스 부하 유발 형 DDoS 공격대응 메커니즘." 한국정보과학회 한국컴퓨터종합학술대회 논문집 제 37 권 제 1 호 (D), 2010</li>
+                <li>[P20] 이태진, 임채수, 임채태, 정현철, "웹서비스 대상 경량화 된 응용계층 DDoS 공격 대응 메커니즘." 정보보호학회 논문지, 2010</li>
+                <li>[P19] 임채수, 이태진, 임채태, 정현철, "Entropy 기반 응용계층 DDoS 공격탐지 메커니즘." 한국통신학회 종합 학술 발표회 논문집 (하계), 2010</li>
+                <li>[P18] TaiJin Lee, JongIl Jeong, HyungJong Kim, HyunChul Jeong, YooJae Won, "User reputation based VoIP spam defense architecture." International Conference on Information Networking, 2009</li>
+                <li>[P17] Lee, T., Won, Y., Im, C., Jung, H., "Case Study: DDoS Attack Command and Performance Analysis of Netbot Attacker." MITA, 2009</li>
+                <li>[P16] Lee, TaiJin, et al., "User reputation based VoIP spam defense architecture." International Conference on Information Networking, 2009</li>
+                <li>[P14] 이태진, et al., "request URI 행위 기반 DDoS 공격탐지 및 대응 메커니즘." 한국정보과학회 가을 학술발표논문집 제 36 권 제 2 호 (D), 2009</li>
+                <li>[P15] Taijin Lee, Yongguen Won, Chaetae Im, Hyunchul Jung, "Case Study: DDoS Attack Command and Performance Analysis of Netbot Attacker." MITA, 2009</li>
+                <li>[P13] 임채수, 이태진, "History 기반 DDoS 공격 대응 방법." 한국통신학회 종합 학술 발표회 논문집 (추계), 2009</li>
+                <li>[P12] Nam, S. Y., Lee, T., "Memory-efficient IP filtering for countering ddos attacks." Asia-Pacific Network Operations and Management Symposium, 2009</li>
+                <li>[P11] Jin, Jinghe, Tai-Jin Lee, Seung-Yeob Nam, "DDoS Defense using Address Prefix-based Priority Service." Journal of the Korea Society for Simulation 18.4, 2009</li>
+                <li>[P9] Jeong, J., Yoon, S., Lee, T., Jeong, H., Won, Y., "VoIP SPAM Response System Adopting Multi-leveled Anti-SPIT Solutions." International Conference on Security Technology, 2008</li>
+                <li>[P8] Jeong, J., Lee, T., Yoon, S., Jeong, H., Won, Y., Kim, M., "A Phased Framework for Countering VoIP SPAM." International Journal of Advanced Science and Technology 1, 2008</li>
+                <li>[P7] 김지연, 김형종, 김명주, 정종일, 이태진, "VoIP 스팸 탐지를 위한 시뮬레이션 실험 프레임 설계." 대한전자공학회 전자 정보 통신 학술 대회 논문집 (CEIC), 2008</li>
+                <li>[P6] 이태진, et al., "VoIP 이동단말 환경에서 긴급구조 서비스를 위한 보안위험 분석." 한국통신학회 종합 학술 발표회 논문집 (하계), 2008</li>
+                <li>[P5] 이태진, et al., "VoIP 프레즌스 서비스에 적용 가능한 XCAP 기반 권한관리기법 설계." 한국정보과학회 한국컴퓨터종합학술대회 논문집 제 34 권 제 1 호 (D), 2007</li>
+                <li>[P2] 이태진, 원유재, "BcN 정보보호를 위한 대응체계 설계." 한국통신학회 제 9 회 차세대 통신소프트웨어 학술대회 NCS, 2005</li>
+                <li>[P1] Lee, G., Im, C., Lee, T., Kim, H., Lee, D. H., "SITIS: scalable intrusion tolerance middleware for internet service survivability." Pacific-Rim Conference on Multimedia, 2004</li>
+            </ul>
+        </div>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>&copy; contact : <a href="mailto:kinjecs0@gmail.com" style="color:#ddd;">kinjecs0@gmail.com</p>
+    </footer>
+</body>
+</html>

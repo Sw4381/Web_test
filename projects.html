@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Projects</title>
+    <link rel="stylesheet" href="projects-css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .project-section {
+            padding: 100px 20px;
+            padding-bottom: 10px;
+            background: #f9f9f9;
+        }
+
+        .project-section h2 {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-size: 2em;
+            color: black;
+        }
+
+        .project-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding-top: 30px;
+        }
+
+        .project-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #4facfe;
+            margin-bottom: 10px;
+        }
+
+        .project-details {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .project-duration {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 100%;
+        }
+
+        .Past_Project-list {
+            list-style: none;
+            padding: 0;
+        }
+        .Past_Project-list li{
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    
+        .show-more {
+            display: none;
+        }
+        .show-more.visible {
+            display: block;
+        }
+        .show-more-button {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .show-more-button button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .show-more-button button:hover {
+            background-color: #0056b3;
+        }
+
+
+
+        @media (max-width: 768px) {
+            .project-card {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-section h1, .past-projects h2 {
+                font-size: 2em;
+            }
+        }
+    .hen {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .toggle-hidden {
+    display: none;
+}
+    .visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+
+
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const showMoreButtons = document.querySelectorAll(".show-more-button button");
+    
+            showMoreButtons.forEach(button => {
+                button.addEventListener("click", function() {
+                    const hiddenSection = this.parentElement.previousElementSibling;
+                    hiddenSection.classList.toggle("visible");
+                });
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <!-- 헤더 영역 -->
+    <header class="navbar">
+        <div class="logo">
+            <img class="logo-picture" src="./image.png">
+        </div>
+        <nav class="menu">
+            <a href="index.html"><i class="fas fa-graduation-cap"></i> Home</a>
+            <a href="./members.html"><i class="fas fa-users"></i> Members</a>
+            <a href="./projects.html" class="active"><i class="fas fa-file-alt"></i> Project</a>
+            <a href="./Publication.html"><i class="fas fa-copy"></i> Publications</a>
+            <a href="./photo.html"><i class="fas fa-image"></i> Other Activity</a>
+        </nav>
+    </header>
+
+    <!-- 현재 진행 중인 프로젝트 섹션 -->
+    <section class="project-section hen">
+        <h2>Current Projects</h2>
+        <div class="project-container">
+            <div class="project-card">
+                <div class="project-title">[PJ43] 네트워크 이상행위 탐지 및 대응</div>
+                <p class="project-details">2024.7~2026.11<br>XAI 기반 연구(KISTI)</p>
+                <p class="project-duration">기간: 2024년 7월 ~ 2026년 11월</p>
+            </div>
+            <div class="project-card">
+                <div class="project-title">[PJ42] 암호화 사이버위협 대응</div>
+                <p class="project-details">2023.4~2027.12<br>ICT 융합 공공 서비스 보안 관제 기술 (IITP)</p>
+                <p class="project-duration">기간: 2023년 4월 ~ 2027년 12월</p>
+            </div>
+            <div class="project-card">
+                <div class="project-title">[PJ41] Life-cycle 공격 그룹 분석</div>
+                <p class="project-details">2022.4~2025.12<br>공격 그룹 식별 및 유형 분석 기술 (IITP)</p>
+                <p class="project-duration">기간: 2022년 4월 ~ 2025년 12월</p>
+            </div>
+            <div class="project-card">
+                <div class="project-title">[PJ40] 국가·공공기관 인공지능 안전성 기준 연구</div>
+                <p class="project-details">2024.7~2024.11<br>한국암호포럼. 아주대</p>
+                <p class="project-duration">기간: 2024년 7월 ~ 2024년 11월</p>
+            </div>
+            <div class="project-card">
+                <div class="project-title">[PJ39] 사이버 공격 그룹 예측 및 TTPs 연관성 분석 연구</div>
+                <p class="project-details">2024.4~2025.2<br>호서대</p>
+                <p class="project-duration">기간: 2024년 4월 ~ 2025년 2월</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 과거 프로젝트 섹션 -->
+    <div class="container">
+        <!-- Patent Section -->
+        <div class="section hidden" id="Past_Project" style="margin-top: 30px;">
+            <h2>Past Project</h2>
+            <ul class="Past_Project-list">
+                <li><strong>[PJ38]</strong> 2024.5~2024.10, K-RMF 보안통제항목 고도화 연구 (방첩사. 아주대)</li>
+                <li><strong>[PJ37]</strong> 2023.5~2023.11, 데이터청년캠퍼스(호서대) - news</li>
+                <li><strong>[PJ36]</strong> 2023.3~2024.2, security 분야에 적합한 AI decision support 기술 연구 (호서대)</li>
+                <li><strong>[PJ35]</strong> 2021.10~2023.5, 침해공격 의심트래픽 분류 및 보호 서비스 자동 생성 모듈 개발(민군협력진흥원. 앰진)</li>
+                <li><strong>[PJ34]</strong> 2022.3~2023.2, 분석가를 위한 AI 예측결과 해석 및 오류 정정 지원기술 연구 (호서대)</li>
+                <li><strong>[PJ33]</strong> 2022.4~2022.12, 알려지지 않은 시스템 및 네트워크 이상행위 탐지 도구 개발 (ADD. 쏘마)</li>
+                <li><strong>[PJ32]</strong> 2022.4~2022.10, 제어시스템 운전정보 이상행위 데이터 분석기술 연구 (NSR)</li>
+                <li><strong>[PJ31]</strong> 2021.3~2022.12, 4단계 BK21사업 재난안전 스마트시티를 위한 창의혁신 인재양성사업</li>
+                <li><strong>[PJ30]</strong> 2018.4~2023.2, 딥러닝 기반 악성코드 패턴룰셋 생성 자동화 원천기술 개발(IITP. 연세대)</li>
+                <li><strong>[PJ29]</strong> 2019.4~2022.12, 지능화된 악성코드 위협으로부터 ICT 인프라 보호 (IITP. ETRI/이스트시큐리티/하우리)</li>
+                
+            </ul>
+
+            <div class="show-more">
+                <ul class="Past_Project-list">
+                    <li><strong>[PJ28]</strong> 2021.3~2022.2, XAI 기반 AI분석결과에 대한 해석기술 연구(호서대)</li>
+                    <li><strong>[PJ27]</strong> 2021.10~2021.11, 공작기계장비 고장진단을 위한 학습 데이터 제작 및 설명 가능한 인공지능 모델 개발(ETRI)</li>
+                    <li><strong>[PJ26]</strong> 2021.8~2021.12, AI 기반 침해공격 분석연구(산업체)</li>
+                    <li><strong>[PJ25]</strong> 2019.9~2025.12, AI/SW 중심대학사업(IITP)</li>
+                    <li><strong>[PJ24]</strong> 2019.4~2021.12, 저작권 침해사이트의 생애주기 프로파일링 기술 개발(저작권위원회. 아주대/앰진) - 문체부 장관상 수상 - news</li>
+                    <li><strong>[PJ23]</strong> 2021.4~2021.10, 제어시스템 운전정보 이상행위 탐지의 원인tag 분석 방안 연구(NSR)</li>
+                    <li><strong>[PJ22]</strong> 2021.5~2021.9, IDS에서의 XAI 적용기술 연구(KISTI)</li>
+                    <li><strong>[PJ21]</strong> 2018.3~2021.2, Malware Obfuscation 극복을 위한 CNN 및 LSH 기반 악성코드 분석 원천기술 연구(NRF)</li>
+                    <li><strong>[PJ20]</strong> 2018.2~2020.12, 인공지능 기반 악성코드 분석기술 고도화 및 EDR 기술 개발(지니언스)</li>
+                    <li><strong>[PJ19]</strong> 2020.4~2020.10, 악성코드 분석 데이터 정제 기술 연구(NSR)</li>
+                    <li><strong>[PJ18]</strong> 2019.3~2020.2, TF-IDF 기반 변종 악성코드 분석기술 연구(호서대)</li>
+                    <li><strong>[PJ17]</strong> 2019.4~2019.11, Payload 기반 IDS log 분석 연구 (KISTI)</li>
+                    <li><strong>[PJ16]</strong> 2019.1~2019.12, 지능정보기술을 활용한 금융서비스 보호 기술 연구 (IITP. 충남대)</li>
+                    <li><strong>[PJ15]</strong> 2018.3~2019.2, 악성코드 Section Feature 및 Convolutional Neural Network 기반 악성코드 그룹분류 분석 연구(호서대)</li>
+                    <li><strong>[PJ14]</strong> 2018.4~2018.10, 경량 블록암호 차분 전력분석 대응기법 적용방안 및 효율성 분석(NSR)</li>
+                    <li><strong>[PJ13]</strong> 2018.4~2018.10, IoT 기기 보안기술 및 신규위협 연구(NSR)</li>
+                    <li><strong>[PJ12]</strong> 2017.3~2018.2, PE 및 DLL파일의 호출구조 분석에 기반한 악성코드 변형관계 분석(호서대)</li>
+                    <li><strong>[PJ11]</strong> 2017.4~2017.10, 오류 주입분석 취약점 평가검증 기술에 관한 연구(NSR)</li>
+                    <li><strong>[PJ10]</strong> 2017.6~2018.2, 멀웨어 분류를 위한 악성코드 핵심Feature 연구(IITP. 윈스)</li>
+                    <li><strong>[PJ9]</strong> 2017.7~2018.2, 인공지능 기반 실시간 악성코드 분석기술 개발(지니언스)</li>
+                    <li><strong>[PJ8]</strong> 2014.3~2017.2, 사이버 블랙박스 및 통합보안상황 분석기술 개발(IITP)</li>
+                    <li><strong>[PJ7]</strong> 2015.3~2017.2, 모바일 결제사기 탐지 및 프로파일링 기술 개발(IITP)</li>
+                    <li><strong>[PJ6]</strong> 2013.3~2016.2, 악성코드 프로파일링 및 이상징후 탐지기술 개발(IITP)</li>
+                    <li><strong>[PJ5]</strong> 2011.3~2014.2, 지능형 악성코드 자동분석 및 경유/유포지 탐지기술 개발(IITP) - 국가연구개발우수성과 100선 선정 - link</li>
+                    <li><strong>[PJ4]</strong> 2009.3~2011.2, 응용서비스에서의 DDoS 공격 대응기술 개발(IITP)</li>
+                    <li><strong>[PJ3]</strong> 2007.3~2009.2, VoIP 암호통신 기술, 스팸대응기술, 세션처리기술 개발(IITP)</li>
+                    <li><strong>[PJ2]</strong> 2006.1~2006.12, 와이브로 정보보호기술 개발 - news</li>
+                    <li><strong>[PJ1]</strong> 2003.1~2005.12, 침입감내기술 개발(IITP)</li>
+                    
+                </ul>
+            </div>
+
+            <div class="show-more-button">
+                <button>Show More</button>
+            </div>
+        </div>
+
+    <script>
+   document.addEventListener("DOMContentLoaded", function () {
+    // 스크롤 애니메이션
+    const hiddenElements = document.querySelectorAll(".hen");
+
+    const handleScroll = () => {
+        hiddenElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (elementTop < windowHeight - 50) {
+                element.classList.add("visible");
+            } else {
+                element.classList.remove("visible");
+            }
+        });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // 초기 호출로 애니메이션 활성화
+    handleScroll();
+
+    // 토글 버튼 기능
+    const toggleButton = document.getElementById("toggle-button");
+    toggleButton.addEventListener("click", () => {
+        const toggleItems = document.querySelectorAll(".toggle-hidden");
+        toggleItems.forEach(item => {
+            if (item.style.display === "none" || item.style.display === "") {
+                item.style.display = "list-item";
+            } else {
+                item.style.display = "none";
+            }
+        });
+
+        // 버튼 아이콘 변경
+        const buttonIcon = toggleButton.querySelector("i");
+        if (buttonIcon.classList.contains("fa-chevron-down")) {
+            buttonIcon.classList.remove("fa-chevron-down");
+            buttonIcon.classList.add("fa-chevron-up");
+        } else {
+            buttonIcon.classList.remove("fa-chevron-up");
+            buttonIcon.classList.add("fa-chevron-down");
+        }
+    });
+});
+    </script>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>&copy; contact: <a href="mailto:kinjecs0@gmail.com" style="color:#ddd;">kinjecs0@gmail.com</a></p>
+    </footer>
+</body>
+</html>

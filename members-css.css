@@ -1,0 +1,315 @@
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html, body {
+    height: 100%; /* 전체 페이지 높이 설정 */
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* 세로 방향으로 콘텐츠 정렬 */
+    line-height: 1.6;
+    color: #333;
+}
+
+
+.logo-picture{
+    width: 230px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    padding: 20px 30px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Wrap menu items if needed */
+    margin-right: 50px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.menu a:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.menu a.active {
+    background: white;
+    color: #4facfe;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #00f2fe;
+}
+
+.logo {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    margin-right: 10px;
+    font-size: 1.6em;
+    color: white;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #4facfe, 0 0 10px #4facfe, 0 0 15px #00f2fe;
+    }
+    to {
+        text-shadow: 0 0 10px #4facfe, 0 0 20px #00f2fe, 0 0 30px #00f2fe;
+    }
+}
+
+.hero {
+    background: #f4f4f4;
+    padding: 150px 50px 50px; /* 메뉴바 높이를 고려하여 패딩 조정 */
+    text-align: center;
+}
+
+section {
+    padding: 40px 20px;
+    text-align: center;
+    flex: 1; /* 나머지 공간을 차지하게 설정 */
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    margin-top: auto; /* 푸터를 항상 하단에 배치 */
+}
+
+.professor-section {
+    display: flex;
+    flex-direction: column; /* 상단에 제목을 배치하기 위해 세로 정렬 */
+    align-items: center; /* 가운데 정렬 */
+    margin-top: 100px;
+
+}
+
+.professor-title {
+    font-size: 2em;
+    color: blueviolet;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.professor-content {
+    display: flex; /* 카드와 히스토리를 수평 정렬 */
+    justify-content: center; /* 가로 가운데 정렬 */
+    align-items: flex-start; /* 상단 정렬 */
+    gap: 40px; /* 카드와 히스토리 간격 */
+    width: 100%;
+    max-width: 1200px; /* 섹션의 최대 너비 제한 */
+}
+
+.professor-card, .professor-history {
+    flex: 1; /* 두 요소가 같은 비율로 공간을 차지하도록 설정 */
+    max-width: 400px; /* 각 블록의 최대 너비 제한 */
+}
+
+.professor-card img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+
+}
+.member-block img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+.professor-history{
+    margin-top: 50px;
+
+}
+.professor-history ul {
+    list-style: none;
+    padding: 0;
+    font-size: 18px;
+}
+
+.professor-history li {
+    margin: 10px 0;
+    font-size: 0.9em;
+}
+
+.professor-history a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.professor-history a:hover {
+    color: #4facfe;
+}
+
+.members-section, .graduates-section {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 1000px;
+}
+
+.members-section{
+    margin-bottom: 0px;
+}
+.graduates-section{
+    margin-top: 0px;
+    padding-top: 0px;
+}
+.professor-card,.member-block {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    margin: 10px;
+}
+
+.graduates-section h2 {
+    margin-top: 30px;
+}
+
+.graduates-text {
+    text-align: left;
+    margin: 10px auto;
+    max-width: 800px;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* 메뉴를 세로로 배치 */
+        align-items: flex-start; /* 왼쪽 정렬 */
+        padding: 15px;
+    }
+
+    .menu {
+        flex-direction: column; /* 메뉴를 세로로 정렬 */
+        gap: 15px; /* 항목 간 간격 */
+        width: 100%; /* 전체 너비 사용 */
+    }
+    .professor-section {
+        display: flex;
+        flex-direction: column; /* 상단에 제목을 배치하기 위해 세로 정렬 */
+        align-items: center; /* 가운데 정렬 */
+        margin-top: 130px;
+    
+    }
+
+    .members-section, .graduates-section {
+        text-align: center;
+        margin: 10px auto;
+        padding: 20px; /* 여백 추가 */
+    }
+
+    .professor-card, .professor-history, .member-block {
+        width: 90%; /* 카드 크기 확대 */
+        margin: 10px auto; /* 가운데 정렬 */
+    }
+
+    .professor-card img, .member-block img {
+        width: 120px; /* 이미지 크기 줄임 */
+        height: 120px;
+    }
+
+    .graduates-text {
+        text-align: center; /* 졸업생 정보 가운데 정렬 */
+        line-height: 1.6; /* 줄 간격 조정 */
+        padding: 10px;
+    }
+
+    footer {
+        font-size: 0.9em; /* 푸터 글자 크기 축소 */
+        padding: 15px;
+    }
+}
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 애니메이션이 완료되면 보이도록 상태 변경 */
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .menu {
+        gap: 10px; /* 간격 줄이기 */
+    }
+
+    .menu a {
+        font-size: 0.8em; /* 텍스트 크기 축소 */
+    }
+
+    .professor-section {
+        display: flex;
+        flex-direction: column; /* 상단에 제목을 배치하기 위해 세로 정렬 */
+        align-items: center; /* 가운데 정렬 */
+        margin-top: 130px;
+    
+    }
+    .professor-card, .member-block, .professor-history {
+        padding: 15px;
+    }
+
+    .professor-card img, .member-block img {
+        width: 100px; /* 이미지 크기 더 줄임 */
+        height: 100px;
+    }
+
+    .graduates-text {
+        font-size: 0.85em; /* 글자 크기 축소 */
+    }
+
+    footer {
+        font-size: 0.8em; /* 푸터 글자 크기 더 축소 */
+    }
+}

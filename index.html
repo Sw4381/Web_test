@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>기본 웹페이지</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 아이콘 폰트 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const hiddenElements = document.querySelectorAll(".hidden");
+
+        const handleScroll = () => {
+            hiddenElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (elementTop < windowHeight - 50) {
+                    element.classList.add("visible");
+                } else {
+                    element.classList.remove("visible");
+                }
+            });
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        // 초기 호출로 애니메이션 활성화
+        handleScroll();
+    });
+</script>
+
+</head>
+<body>
+    <!-- 헤더 영역 -->
+    <header class="navbar">
+        <div class="logo">
+            <img class="logo-picture" src="./image.png">
+            
+        </div>
+        <nav class="menu">
+            <a href="index.html" class="active"><i class="fas fa-graduation-cap"></i> Home</a>
+            <a href="./members.html"><i class="fas fa-users"></i> Members</a>
+            <a href="./projects.html"><i class="fas fa-file-alt"></i> Project</a>
+            <a href="./Publication.html"><i class="fas fa-copy"></i> Publications</a>
+            <a href="./photo.html"><i class="fas fa-image"></i> Other Activity</a>
+        </nav>
+    </header>
+
+    <!-- 메인 섹션 -->
+    <section id="home" class="hero">
+        <h2 style="margin-bottom: 20px;">Security Intelligence Lab</h2>
+        <p class="hidden">보안 지능 연구실에서는 <strong>AI 기술 연구 및 보안분야에 응용</strong>을 기본으로 하며</p>
+        <p class="hidden">실질적인 AI 생산성을 높이기 위해 아래와 같은 연구를 진행하고 있습니다.</p>
+    </section>
+
+    <!-- 소개 섹션 -->
+    <section id="research" style="padding-top: 0px;">
+        <h2 class="hidden">주요 연구</h2>
+
+        <div class="research-highlight">
+            <div class="research-card hidden">
+                <h3>[R10] Graph Based Threat Intelligence</h3>
+                <p>- Graph 기반 다수 Entity(Group/Technique/Software/Domain..) 간의 관계 분석</p>
+                <p>- 복잡한 node 관계에서의 다양한 해석 지원</p>
+            </div>
+            <div class="research-card hidden">
+                <h3>[R9] Network Attack Detection</h3>
+                <p>- 암호화된 트래픽 환경에서의 attack IP 탐지, topology 패턴 분석 기술</p>
+                <p>- 암호화된 환경에서 공격자 탐색 기반 마련</p>
+            </div>
+            <div class="research-card hidden">
+                <h3>[R8] AI Model Drift Detection</h3>
+                <p>- AI 모델의 갱신 시점 자동탐색 기술</p>
+                <p>- Supervised, Unsupervised 환경에서의 최적화된 모델 운영 지원</p>
+            </div>
+            <div class="research-card hidden">
+                <h3>[R7] Reference Based Explanation</h3>
+                <p>- Secure 분야의 효과적 AI 예측에 대한 Reference 기반 해석 기술</p>
+                <p>- 직관적인 해석 제공에 따라 AI-Decision support</p>
+            </div>
+            <div class="research-card hidden">
+                <h3>[R6] XAI Technique Evaluation</h3>
+                <p>- 다양한 XAI 기술에 대한 범용적인 성능평가 Framework</p>
+                <p>- XAI 성공 평가를 통한, XAI 신뢰성 확보</p>
+            </div>
+            <div class="research-card hidden">
+                <h3>[R5] Robust AI Model Development</h3>
+                <p>- Adversarial attack에 대응 가능한 Robust한 AI Model 개발 및 Robustness 수준측정 기술</p>
+                <p>- Adversarial attack의 취약한 공격유형 식별 및 사전대응 지원</p>
+            </div>
+            <div class="research-card hidden">
+                <h3>[R4] Illegal Content Detection</h3>
+                <p>- 불법 콘텐츠 탐지 자동 탐지 및 저작권 침해자 프로파일링 기술</p>
+                <p>- 불법 복제작물 실시간 유포자 추적/검거 지원</p>
+            </div>
+            <div class="research-card hidden">
+                <h3>[R3] False Alarm Detection</h3>
+                <p>- Security 시스템에서의 False alarm 선별 기술</p>
+                <p>- False alarm 제거를 통한 효율적인 분석인력 운영 지원</p>
+            </div>
+            <div class="research-card hidden">
+                <h3>[R2] Unknown Endpoint Attack Detection</h3>
+                <p>- EDR에서의 unknown attack 탐지 기술</p>
+                <p>- Unknown attack에 대한 threat hunting 지원</p>
+            </div>
+            <div class="research-card hidden">
+                <h3>[R1] Predictive Maintenance</h3>
+                <p>- Smart factory에서의 공작기계 고장시점을 예측하고, 고장원인에 대한 분석 기술</p>
+                <p>- 비용대비 효과적인 부품교체 시기 결정 지원</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>&copy; contact : <a href="mailto:kinjecs0@gmail.com" style="color:#ddd;">kinjecs0@gmail.com</a></p>
+    </footer>
+</body>
+</html>
