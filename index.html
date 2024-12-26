@@ -2,41 +2,162 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>기본 웹페이지</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- 아이콘 폰트 CDN -->
+    <title>보안 지능 연구실</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const hiddenElements = document.querySelectorAll(".hidden");
+    <style>
+        body, h1, h2, h3, p {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            padding: 20px 30px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .menu {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap; /* Wrap menu items if needed */
+            margin-right: 50px;
+        }
+        .menu a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.1em;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .menu a:hover, .menu a.active {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .content {
+            padding: 160px 30px 30px;
+            text-align: left;
+        }
+        .logo-picture{
+            width: 230px;
+        }
+        
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            margin-top: auto; /* 푸터를 항상 하단에 배치 */
+        }
 
-        const handleScroll = () => {
-            hiddenElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
+        .section {
+            padding: 20px;
+            border-radius: 15px;
+        }
 
-                if (elementTop < windowHeight - 50) {
-                    element.classList.add("visible");
-                } else {
-                    element.classList.remove("visible");
-                }
-            });
-        };
+        .section p, .section li {
+            font-size: 1.05em; /* Larger font size for readability */
+            line-height: 1.6; /* Increased line height for better readability */
+            color: #444; /* Slightly lighter than headers for contrast */
+        }
+        
 
-        window.addEventListener("scroll", handleScroll);
 
-        // 초기 호출로 애니메이션 활성화
-        handleScroll();
-    });
-</script>
+        .research_topic, .introduction_topic {
+            list-style: none;
+            padding-left: 0;
+        }
+        .research_topic li {
+            margin-bottom: 10px;
+            padding: 15px;
+            border-left: 5px solid #4facfe;
+            transition: transform 0.3s;
+            font-weight: bold;
+        }
+    /* Lab_Introduction section 애니메이션 */
+        @keyframes fadeIn {
+            from { opacity: 0; visibility: hidden; transform: translateY(20px); }
+            to { opacity: 1; visibility: visible; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            visibility: hidden;
+            animation: fadeIn 1s ease-out forwards;
+        }
+        
+        .fade-in-delayed, .introduction_topic{
+            opacity: 0;
+            visibility: hidden;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+        
+        /* 이미지에 대한 특별한 애니메이션 효과 */
+        .lab-image {
+            opacity: 0;
+            visibility: hidden;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
 
+        
+        .Lab_Introduction{
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* 2:1 비율로 텍스트와 이미지 분할 */
+            align-items: center; /* 세로 중앙 정렬 */
+            gap: 20px; /* 텍스트와 이미지 사이의 간격 */
+            padding: 20px;
+            padding-top: 50px;
+            margin-top: 100px;
+            border-radius: 10px; /* 테두리 둥글게 */
+        }
+        .about_Lab{
+            display: grid;
+            grid-template-columns: 1fr 2fr; /* 2:1 비율로 텍스트와 이미지 분할 */
+            align-items: center; /* 세로 중앙 정렬 */
+            gap: 20px; /* 텍스트와 이미지 사이의 간격 */
+            padding: 20px;
+            border-radius: 10px; /* 테두리 둥글게 */
+        }
+        h1, h2 {
+            color: #005792; /* Consistent color theme */
+            margin-bottom: 20px;
+        }
+
+        .Lab_Introduction img, .about_Lab img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        li {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        
+    </style>
 </head>
 <body>
+    <!-- 헤더 -->
     <!-- 헤더 영역 -->
     <header class="navbar">
         <div class="logo">
             <img class="logo-picture" src="./image.png">
-            
         </div>
         <nav class="menu">
             <a href="index.html" class="active"><i class="fas fa-graduation-cap"></i> Home</a>
@@ -47,74 +168,54 @@
         </nav>
     </header>
 
-    <!-- 메인 섹션 -->
-    <section id="home" class="hero">
-        <h2 style="margin-bottom: 20px;">Security Intelligence Lab</h2>
-        <p class="hidden">보안 지능 연구실에서는 <strong>AI 기술 연구 및 보안분야에 응용</strong>을 기본으로 하며</p>
-        <p class="hidden">실질적인 AI 생산성을 높이기 위해 아래와 같은 연구를 진행하고 있습니다.</p>
-    </section>
 
-    <!-- 소개 섹션 -->
-    <section id="research" style="padding-top: 0px;">
-        <h2 class="hidden">주요 연구</h2>
-
-        <div class="research-highlight">
-            <div class="research-card hidden">
-                <h3>[R10] Graph Based Threat Intelligence</h3>
-                <p>- Graph 기반 다수 Entity(Group/Technique/Software/Domain..) 간의 관계 분석</p>
-                <p>- 복잡한 node 관계에서의 다양한 해석 지원</p>
-            </div>
-            <div class="research-card hidden">
-                <h3>[R9] Network Attack Detection</h3>
-                <p>- 암호화된 트래픽 환경에서의 attack IP 탐지, topology 패턴 분석 기술</p>
-                <p>- 암호화된 환경에서 공격자 탐색 기반 마련</p>
-            </div>
-            <div class="research-card hidden">
-                <h3>[R8] AI Model Drift Detection</h3>
-                <p>- AI 모델의 갱신 시점 자동탐색 기술</p>
-                <p>- Supervised, Unsupervised 환경에서의 최적화된 모델 운영 지원</p>
-            </div>
-            <div class="research-card hidden">
-                <h3>[R7] Reference Based Explanation</h3>
-                <p>- Secure 분야의 효과적 AI 예측에 대한 Reference 기반 해석 기술</p>
-                <p>- 직관적인 해석 제공에 따라 AI-Decision support</p>
-            </div>
-            <div class="research-card hidden">
-                <h3>[R6] XAI Technique Evaluation</h3>
-                <p>- 다양한 XAI 기술에 대한 범용적인 성능평가 Framework</p>
-                <p>- XAI 성공 평가를 통한, XAI 신뢰성 확보</p>
-            </div>
-            <div class="research-card hidden">
-                <h3>[R5] Robust AI Model Development</h3>
-                <p>- Adversarial attack에 대응 가능한 Robust한 AI Model 개발 및 Robustness 수준측정 기술</p>
-                <p>- Adversarial attack의 취약한 공격유형 식별 및 사전대응 지원</p>
-            </div>
-            <div class="research-card hidden">
-                <h3>[R4] Illegal Content Detection</h3>
-                <p>- 불법 콘텐츠 탐지 자동 탐지 및 저작권 침해자 프로파일링 기술</p>
-                <p>- 불법 복제작물 실시간 유포자 추적/검거 지원</p>
-            </div>
-            <div class="research-card hidden">
-                <h3>[R3] False Alarm Detection</h3>
-                <p>- Security 시스템에서의 False alarm 선별 기술</p>
-                <p>- False alarm 제거를 통한 효율적인 분석인력 운영 지원</p>
-            </div>
-            <div class="research-card hidden">
-                <h3>[R2] Unknown Endpoint Attack Detection</h3>
-                <p>- EDR에서의 unknown attack 탐지 기술</p>
-                <p>- Unknown attack에 대한 threat hunting 지원</p>
-            </div>
-            <div class="research-card hidden">
-                <h3>[R1] Predictive Maintenance</h3>
-                <p>- Smart factory에서의 공작기계 고장시점을 예측하고, 고장원인에 대한 분석 기술</p>
-                <p>- 비용대비 효과적인 부품교체 시기 결정 지원</p>
-            </div>
+    <div class="Lab_Introduction section">
+        <div>
+            <h1 class="fade-in">Security Intelligence Lab</h1>
+            <hr class="fade-in-delayed">
+            <ul class="research_topic">
+                <li class="fade-in-delayed" style="animation-delay: 1.0s;">호서대 보안지능연구실에서는 최첨단 AI 기술과 심도 있는 데이터 분석을 융합하여 다양하고 복잡한 보안 위협에 맞서는 연구를 수행하고 있습니다.</li>
+                <li class="fade-in-delayed" style="animation-delay: 1.2s;">데이터 마이닝, 기계학습, 심층학습 등의 최신 기술을 활용하여 현장에서 직면하는 보안 문제에 대한 실용적이며 혁신적인 솔루션 개발에 주력하고 있습니다.</li>
+                <li class="fade-in-delayed" style="animation-delay: 1.4s;">다양한 정부 과제에 참여하며 국내 주요 기업들과의 협약을 통해 실무적 적용 가능성을 높이는 연구를 진행하고 있습니다.</li>
+            </ul>
         </div>
-    </section>
+        <img class="lab-image" src="./image.png" alt="Lab Image">
+    </div>
 
-    <!-- 푸터 -->
-    <footer>
-        <p>&copy; contact : <a href="mailto:kinjecs0@gmail.com" style="color:#ddd;">kinjecs0@gmail.com</a></p>
-    </footer>
+    <div class="about_Lab section">
+    <img class="lab-image" src="./image.png" alt="Lab Image"> 
+    <div>
+        <div class="about_Lab_text">
+            <h2 class="fade-in">About SILab</h2>
+            <hr>
+            <ul class="introduction_topic" style="animation-delay: 1.6s;">
+                <li >AI 기술연구 및 보안분야에 응용을 기본으로 하며,실질적인 AI 생산성을 높이기 위해 AI decision support(XAI), AI 오탐지 대상 식별/조치(false alarm detection),</li>
+                <li>AI 모델의 update 시점 분석(drift detection), adversarial attack에 대한 AI 강건성 수준분석(AI robustness),Graph 기반 network attack, threat intelligence 분석 등</li>
+                <li>의 연구를 진행중에 있습니다.</li>
+            </ul>
+            <h2 class="fade-in">Detailed research</h2>
+            <hr>
+            <ul class="fade-in-delayed" style="animation-delay: 1.6s;">
+                <li><strong>[R10] Graph Based Threat Intelligence</strong> - Graph 기반 다수 Entity(Group/Technique/Software/Domain..) 간의 관계 분석</li>
+                <li><strong>[R9] Network Attack Detection</strong> - 암호화된 트래픽 환경에서의 attack IP 탐지, topology 패턴 분석 기술</li>
+                <li><strong>[R8] AI Model Drift Detection</strong> - AI 모델의 갱신 시점 자동탐색 기술</li>
+                <li><strong>[R7] Reference Based Explanation</strong> - Secure 분야의 효과적 AI 예측에 대한 Reference 기반 해석 기술</li>
+                <li><strong>[R6] XAI Technique Evaluation</strong> - 다양한 XAI 기술에 대한 범용적인 성능평가 Framework</li>
+                <li><strong>[R5] Robust AI Model Development</strong> - Adversarial attack에 대응 가능한 Robust한 AI Model 개발 및 Robustness 수준측정 기술</li>
+                <li><strong>[R4] Illegal Content Detection</strong> - 불법 콘텐츠 탐지 자동 탐지 및 저작권 침해자 프로파일링 기술</li>
+                <li><strong>[R3] False Alarm Detection</strong> - Security 시스템에서의 False alarm 선별 기술</li>
+                <li><strong>[R2] Unknown Endpoint Attack Detection</strong> - EDR에서의 unknown attack 탐지 기술</li>
+                <li><strong>[R1] Predictive Maintenance</strong> - Smart factory에서의 공작기계 고장시점을 예측하고, 고장원인에 대한 분석 기술</li>
+            </ul>
+        </div>
+    </div>
+
+    </div>
+
+        <!-- 푸터 -->
+        <footer>
+            <p>&copy; contact: <a href="mailto:kinjecs0@gmail.com" style="color:#ddd;">kinjecs0@gmail.com</a></p>
+        </footer>
+    </div>
 </body>
 </html>
